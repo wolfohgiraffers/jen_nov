@@ -1,0 +1,21 @@
+server:
+  port: 7777
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://mariadb-persist:3306/calcdb
+    username: root
+    password: root1234
+
+# create: 애플리케이션 실행 시 기존 테이블이 있다면 drop, 그리고 항상 create table 진행
+# create-drop: 애플리케이션 실행 시 항상 create table 진행, 종료 시 drop
+# update: 애플리케이션 실행 시 기존 테이블이 없다면 create table, 있다면 컬럼이 추가 될 때만 alter
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MariaDBDialect
