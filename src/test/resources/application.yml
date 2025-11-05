@@ -3,28 +3,17 @@ server:
 
 spring:
   datasource:
-    # 테스트 환경에서는 H2 인메모리 데이터베이스 사용
     driver-class-name: org.h2.Driver
-    # jdbc:h2:mem:testdb - 메모리 기반 임시 데이터베이스 (테스트 종료 시 자동 삭제)
-    # mem (Memory Mode): 메모리에만 저장, 애플리케이션 종료 시 데이터 삭제
-    # 이후 데이터베이스명은 내가 쓰고 싶은 이름 사용 가능
     url: jdbc:h2:mem:testdb
-    # H2 기본 사용자명
     username: sa
-    # H2 기본 비밀번호 (빈 값)
-    password: 
+    password:
 
   jpa:
     hibernate:
-      # create-drop: 테스트 시작 시 테이블 생성, 종료 시 삭제
-      # 테스트 환경에서 매번 깨끗한 상태로 시작하기 위함
       ddl-auto: create-drop
-    # SQL 쿼리 로그 출력
     show-sql: true
     properties:
       hibernate:
-        # SQL 쿼리를 보기 좋게 포맷팅
         format_sql: true
-        # H2 데이터베이스 전용 방언(Dialect) 사용
         dialect: org.hibernate.dialect.H2Dialect
 
